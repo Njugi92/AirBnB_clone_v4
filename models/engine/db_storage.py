@@ -27,16 +27,16 @@ class DBStorage:
 
     def __init__(self):
         """Instantiate a DBStorage object"""
-        HBNB_MYSQL_USER = getenv('HBNB_MYSQL_USER')
-        HBNB_MYSQL_PWD = getenv('HBNB_MYSQL_PWD')
-        HBNB_MYSQL_HOST = getenv('HBNB_MYSQL_HOST')
-        HBNB_MYSQL_DB = getenv('HBNB_MYSQL_DB')
+        HBNB_MYSQL_USER = getenv('hbnb_dev')
+        HBNB_MYSQL_PWD = getenv('hbnb_dev_pwd')
+        HBNB_MYSQL_HOST = getenv('localhost')
+        HBNB_MYSQL_DB = getenv('hbnb_dev_db')
         HBNB_ENV = getenv('HBNB_ENV')
         self.__engine = create_engine('mysql+mysqldb://{}:{}@{}/{}'.
-                                      format(HBNB_MYSQL_USER,
-                                             HBNB_MYSQL_PWD,
-                                             HBNB_MYSQL_HOST,
-                                             HBNB_MYSQL_DB))
+                                      format('hbnb_dev',
+                                             'hbnb_dev_pwd',
+                                             'localhost',
+                                             'hbnb_dev_db'))
         if HBNB_ENV == "test":
             Base.metadata.drop_all(self.__engine)
 
