@@ -3,7 +3,7 @@
     This script starts a Flask web application
 """
 from os import getenv
-from flask import Flask, jsonify, requests
+from flask import Flask, jsonify, request
 from flask_cors import CORS
 from models import storage
 from api.v1.views import app_views
