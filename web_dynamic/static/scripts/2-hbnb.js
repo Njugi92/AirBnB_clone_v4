@@ -1,7 +1,8 @@
-$(document).ready(function () {
+(document).ready(function () {
   $('input[type=checkbox]').click(function () {
     const myListName = [];
     const myId = [];
+    const HOST = 52.204.97.34;
     $('input[type=checkbox]:checked').each(function () {
       myListName.push($(this).attr('data-name'));
       myId.push($(this).attr('data-id'));
@@ -16,7 +17,7 @@ $(document).ready(function () {
 });
 
 $.ajax({
-  url: 'http://0.0.0.0:5001/api/v1/status/',
+  url: 'http://${HOST}:5001/api/v1/status/',
   type: 'GET',
   dataType: 'json',
   success: function (json) {
